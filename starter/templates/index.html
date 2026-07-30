@@ -1,18 +1,72 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Sudoku Game</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
-  <div class="controls">
-    <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
-  </div>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">🌙 Dark Mode</button>
+      </div>
+      <p class="eyebrow">Playful puzzle</p>
+      <h1>Sudoku Game</h1>
+      <p class="hero-copy">Fill each row, column, and 3×3 block with the numbers 1 through 9.</p>
+    </header>
+
+    <section class="game-layout">
+      <div class="game-card">
+        <div id="sudoku-board" class="sudoku-board" aria-label="Sudoku board"></div>
+
+        <div class="controls" aria-label="Sudoku game controls">
+          <label class="control-field" for="difficulty-select">
+            <span class="control-label">Difficulty</span>
+            <select id="difficulty-select">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+
+          <div class="stats-grid" aria-label="Game status">
+            <div class="stat-pill">
+              <span class="stat-label">Level</span>
+              <span id="difficulty-level" class="stat-value">Medium</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Time</span>
+              <span id="game-timer" class="stat-value">00:00</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Hints</span>
+              <span id="hint-count" class="stat-value">0</span>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button id="new-game" type="button">New Game</button>
+            <button id="check-solution" type="button">Check Puzzle</button>
+            <button id="get-hint" type="button">Hint</button>
+          </div>
+
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <aside id="leaderboard" class="leaderboard-card" aria-label="Leaderboard">
+        <div class="leaderboard-header">
+          <h2>Leaderboard</h2>
+          <p>Fastest completed runs</p>
+        </div>
+        <div id="leaderboard-list" class="leaderboard-list"></div>
+      </aside>
+    </section>
+  </main>
+
   <script src="/static/main.js"></script>
 </body>
 </html>
