@@ -202,17 +202,45 @@ function toggleTheme() {
   applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
 }
 
+// function applyCellStyling(input, { isLocked, isHinted, isIncorrect }) {
+//   const classes = ['sudoku-cell'];
+//   if (isLocked) {
+//     classes.push('prefilled');
+//   }
+//   if (isHinted) {
+//     classes.push('hinted');
+//   }
+//   if (isIncorrect) {
+//     classes.push('incorrect');
+//   }
+//   input.className = classes.join(' ');
+// }
+
 function applyCellStyling(input, { isLocked, isHinted, isIncorrect }) {
-  const classes = ['sudoku-cell'];
+  const row = Number(input.dataset.row);
+  const col = Number(input.dataset.col);
+
+  const blockRow = Math.floor(row / 3);
+  const blockCol = Math.floor(col / 3);
+  const blockIndex = blockRow * 3 + blockCol;
+
+  const classes = [
+    'sudoku-cell',
+    `block-${blockIndex % 2 === 0 ? 'even' : 'odd'}`
+  ];
+
   if (isLocked) {
     classes.push('prefilled');
   }
+
   if (isHinted) {
     classes.push('hinted');
   }
+
   if (isIncorrect) {
     classes.push('incorrect');
   }
+
   input.className = classes.join(' ');
 }
 

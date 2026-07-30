@@ -84,6 +84,14 @@ GitHub Copilot was used throughout the project to assist with:
 
 All Copilot-generated code was reviewed, tested, and integrated before use.
 
+## Copilot Evaluation
+
+During development, I evaluated a GitHub Copilot suggestion for changing the Sudoku button color.
+
+Instead of automatically accepting the generated change, I reviewed the proposed edit using the Copilot Edit workflow (Keep/Undo). I decided not to keep the suggestion because it did not match the final UI design and styling of the application.
+
+The screenshot `Screenshots/copilot_evaluation.png` demonstrates this evaluation process.
+
 ## Project Structure
 
 ```

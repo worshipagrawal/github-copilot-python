@@ -7,11 +7,11 @@
     --text-strong: #162033;
     --text-muted: #526071;
     --border: #d8e0ea;
-    --primary: #2563eb;
-    --primary-strong: #1d4ed8;
+    --primary: #4f9f4f;
+    --primary-strong: #3e7f3e;
     --board-outline: #111827;
-    --cell-bg: #fbfdff;
-    --cell-bg-alt: #f1f5f9;
+    --cell-bg: #ffffff;
+    --cell-bg-alt: #d6dbe3;
     --prefilled-bg: #e8ecff;
     --hinted-bg: #e0f2fe;
     --incorrect-bg: #fee2e2;
@@ -157,12 +157,20 @@ h1 {
     transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.sudoku-cell.block-even {
+/* .sudoku-cell.block-even {
     background: var(--cell-bg-alt);
 }
 
 .sudoku-cell.block-odd {
     background: var(--cell-bg);
+} */
+
+.sudoku-cell.block-even {
+    background: #ececec;
+}
+
+.sudoku-cell.block-odd {
+    background: #ffffff;
 }
 
 .sudoku-cell:focus-visible {
@@ -170,19 +178,35 @@ h1 {
     background: var(--focus-active-bg);
 }
 
-.sudoku-cell.prefilled {
+/* .sudoku-cell.prefilled {
     background: var(--prefilled-bg);
     font-weight: 700;
-}
+}  */
 
-.sudoku-cell.hinted {
-    background: var(--hinted-bg);
+.sudoku-cell.prefilled {
+    font-weight: 700;
     color: var(--text-strong);
 }
 
-.sudoku-cell.incorrect {
-    background: var(--incorrect-bg);
+ /* .sudoku-cell.hinted {
+    background: var(--hinted-bg);
+    color: var(--text-strong);
+} */
+
+.sudoku-cell.hinted {
+    background: #63e6be;
+    color: var(--text-strong);
+    font-weight: 700;
 }
+
+/* .sudoku-cell.incorrect {
+    background: var(--incorrect-bg);
+} */
+
+.sudoku-cell.incorrect {
+    background: #ffb4a2;
+}
+
 
 .sudoku-cell:nth-child(3n) {
     border-right: 3px solid var(--board-outline);
