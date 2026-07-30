@@ -153,7 +153,8 @@ h1 {
     font-weight: 600;
     outline: none;
     background: var(--cell-bg);
-    color: var(--text-strong);
+    /* color: var(--text-strong); */
+    color: #162033;
     transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -165,13 +166,21 @@ h1 {
     background: var(--cell-bg);
 } */
 
-.sudoku-cell.block-even {
+/* .sudoku-cell.block-even {
     background: #ececec;
 }
 
 .sudoku-cell.block-odd {
     background: #ffffff;
+} */
+
+.sudoku-cell.block-even{
+    background:var(--cell-bg-alt);
 }
+
+.sudoku-cell.block-odd{
+    background:var(--cell-bg);
+} 
 
 .sudoku-cell:focus-visible {
     box-shadow: inset 0 0 0 2px var(--focus-ring);
@@ -183,15 +192,22 @@ h1 {
     font-weight: 700;
 }  */
 
-.sudoku-cell.prefilled {
+/* .sudoku-cell.prefilled {
+    background: var(--prefilled-bg);
+    color: #162033;
     font-weight: 700;
-    color: var(--text-strong);
-}
+} */
 
  /* .sudoku-cell.hinted {
     background: var(--hinted-bg);
     color: var(--text-strong);
 } */
+
+.sudoku-cell.prefilled {
+    background: var(--prefilled-bg);
+    color: #162033;
+    font-weight: 700;
+}
 
 .sudoku-cell.hinted {
     background: #63e6be;
@@ -390,7 +406,7 @@ button:hover {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
         color-scheme: dark;
         --page-bg: #0f172a;
@@ -421,4 +437,83 @@ button:hover {
     .sudoku-cell:focus-visible {
         background: #1d4ed8;
     }
+} */
+
+/* @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+
+        --page-bg: #0f172a;
+        --page-bg-accent: #111827;
+        --surface: #111827;
+        --surface-muted: #1f2937;
+        --text-strong: #f9fafb;
+        --text-muted: #cbd5e1;
+        --border: #334155;
+        --primary: #60a5fa;
+        --primary-strong: #3b82f6;
+        --board-outline: #e5e7eb;
+
+        --cell-bg: #111827;
+        --cell-bg-alt: #172033;
+        --prefilled-bg: #312e81;
+        --hinted-bg: #0f766e;
+        --incorrect-bg: #7f1d1d;
+
+        --focus-ring: rgba(96, 165, 250, 0.45);
+        --shadow: 0 20px 40px rgba(2, 8, 23, 0.45);
+
+        --message-error: #f87171;
+        --message-info: #60a5fa;
+        --message-success: #4ade80;
+    }
+
+    :root:not([data-theme="light"]) body {
+        background: linear-gradient(135deg, #020617 0%, #111827 100%);
+    }
+
+    :root:not([data-theme="light"]) .sudoku-cell:focus-visible {
+        background: #1d4ed8;
+    }
+} */
+
+/* 
+ @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+    }
+
+    :root:not([data-theme="light"]) body {
+        background: linear-gradient(135deg, #020617 0%, #111827 100%);
+    }
+
+    :root:not([data-theme="light"]) .sudoku-cell:focus-visible {
+        background: #1d4ed8;
+    }
+}
+
+
+:root[data-theme="dark"] .sudoku-cell,
+:root[data-theme="dark"] .sudoku-cell.prefilled,
+:root[data-theme="dark"] .sudoku-cell.hinted {
+    color: #ffffff;
+} */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+    }
+
+    :root:not([data-theme="light"]) body {
+        background: linear-gradient(135deg, #020617 0%, #111827 100%);
+    }
+
+    :root:not([data-theme="light"]) .sudoku-cell:focus-visible {
+        background: #1d4ed8;
+    }
+}
+
+/* Dark mode: only user-entered numbers should be white */
+:root[data-theme="dark"] .sudoku-cell:not(.prefilled):not(.hinted) {
+    color: #ffffff;
 }
